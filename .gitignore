@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.python_packages/
+ielts_app.db
+uploads/
+exports/
+output/
+tmp/

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: bandforge-ielts
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: APP_DATA_DIR
+        value: /var/data
+      - key: IELTS_ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: bandforge-data
+      mountPath: /var/data

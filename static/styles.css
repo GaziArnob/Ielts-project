@@ -1,0 +1,477 @@
+:root {
+  color-scheme: light;
+  --bg: #efe6d4;
+  --bg-strong: #f7f2e9;
+  --panel: #fffaf1;
+  --panel-2: #f4ecdf;
+  --text: #17140f;
+  --muted: #61584f;
+  --accent: #bf5a2d;
+  --accent-strong: #7d2f14;
+  --teal: #0f6767;
+  --line: rgba(23, 20, 15, 0.12);
+  --shadow: 0 28px 60px rgba(77, 56, 35, 0.12);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1618;
+  --bg-strong: #172124;
+  --panel: #1b2629;
+  --panel-2: #223136;
+  --text: #edf3f3;
+  --muted: #a7b5b7;
+  --accent: #f08a50;
+  --accent-strong: #f4b38e;
+  --teal: #4cc9c4;
+  --line: rgba(237, 243, 243, 0.1);
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(191, 90, 45, 0.16), transparent 22%),
+    radial-gradient(circle at top right, rgba(15, 103, 103, 0.14), transparent 24%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-strong) 100%);
+}
+
+a { color: inherit; }
+
+.page-shell {
+  width: min(1220px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 3rem;
+}
+
+.site-header,
+.site-nav,
+.home-grid,
+.feature-grid,
+.hero-actions,
+.form-grid,
+.split-layout,
+.answer-grid,
+.progress-head,
+.progress-pills,
+.lookup-form,
+.admin-toolbar,
+.submission-list,
+.review-grid,
+.metric-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.site-header {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav {
+  grid-template-columns: repeat(5, auto);
+  align-items: center;
+}
+
+.site-nav a,
+.theme-toggle,
+.button {
+  border-radius: 999px;
+}
+
+.site-nav a,
+.theme-toggle {
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.46);
+  color: var(--text);
+}
+
+.theme-toggle,
+.button,
+.prompt-play,
+.record-start,
+.record-stop {
+  cursor: pointer;
+}
+
+.hero-card,
+.feature-card,
+.panel-card,
+.answer-card,
+.essay-card,
+.audio-panel,
+.reading-panel,
+.submission-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.home-grid,
+.admin-layout,
+.exam-page,
+.single-panel {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero-card,
+.panel-card {
+  padding: 1.4rem;
+  border-radius: 1.6rem;
+}
+
+.hero-card h1,
+.panel-card h1,
+.progress-head h1,
+.published-card h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.hero-card h1 {
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 0.97;
+  max-width: 12ch;
+}
+
+.lead,
+.progress-head p:last-child,
+.panel-card p,
+.reading-panel p,
+.audio-panel p,
+.submission-card p,
+.long-copy,
+.feedback-box,
+.admin-note {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.eyebrow,
+.small-label,
+.feature-card span,
+.submission-meta span,
+.status-banner {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.eyebrow,
+.small-label,
+.feature-card span,
+.submission-meta span {
+  color: var(--teal);
+}
+
+.status-banner {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.status-banner.online {
+  background: rgba(15, 103, 103, 0.12);
+  color: var(--teal);
+}
+
+.status-banner.offline {
+  background: rgba(191, 90, 45, 0.12);
+  color: var(--accent);
+}
+
+.hero-actions {
+  grid-template-columns: repeat(2, max-content);
+  margin-top: 1.25rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.92rem 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.button:hover,
+.theme-toggle:hover,
+.site-nav a:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), #ea9968);
+}
+
+.button-secondary {
+  color: var(--text);
+  background: var(--panel-2);
+  border-color: var(--line);
+}
+
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  background: var(--panel-2);
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.feature-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.feature-card,
+.answer-card,
+.essay-card,
+.audio-panel,
+.reading-panel,
+.submission-card,
+.published-card {
+  padding: 1.2rem;
+  border-radius: 1.35rem;
+}
+
+.feature-card strong,
+.answer-card strong,
+.essay-card strong,
+.published-card strong {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.single-panel {
+  max-width: 880px;
+}
+
+.form-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid label,
+.essay-card,
+.answer-card {
+  display: grid;
+  gap: 0.45rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  font-size: 16px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  color: var(--text);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: #0f1719;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.full-width,
+.submit-row {
+  width: 100%;
+}
+
+.progress-head {
+  grid-template-columns: 1fr auto;
+  align-items: end;
+}
+
+.progress-pills {
+  grid-template-columns: repeat(4, auto);
+}
+
+.progress-pill {
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.progress-pill.active {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--teal));
+}
+
+.exam-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.split-layout {
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: start;
+}
+
+.answer-grid,
+.submission-list,
+.review-grid,
+.metric-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.audio-controls,
+.prompt-head,
+.submission-meta,
+.admin-toolbar,
+.lookup-form {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.script-list,
+.prompt-list,
+.review-list {
+  padding-left: 1.2rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.record-strip {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.record-strip audio {
+  width: 100%;
+}
+
+.published-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.metric-grid {
+  margin: 1rem 0;
+}
+
+.metric-grid article {
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  background: var(--panel-2);
+}
+
+.metric-grid .featured {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--teal));
+}
+
+.result-chip {
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--teal), #58c3c0);
+}
+
+.feedback-box {
+  margin-top: 1rem;
+}
+
+.form-alert {
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  background: rgba(191, 90, 45, 0.12);
+  color: var(--accent);
+}
+
+.admin-note code {
+  padding: 0.18rem 0.35rem;
+  border-radius: 0.45rem;
+  background: var(--panel-2);
+}
+
+.audio-missing {
+  color: var(--muted);
+}
+
+@media (max-width: 1024px) {
+  .feature-grid,
+  .split-layout,
+  .answer-grid,
+  .review-grid,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header,
+  .site-nav,
+  .progress-head,
+  .progress-pills,
+  .hero-actions,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav a,
+  .theme-toggle,
+  .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 1rem, 100%);
+  }
+
+  .hero-card,
+  .panel-card,
+  .feature-card,
+  .answer-card,
+  .essay-card,
+  .audio-panel,
+  .reading-panel,
+  .submission-card,
+  .published-card {
+    padding: 1rem;
+    border-radius: 1.1rem;
+  }
+}
